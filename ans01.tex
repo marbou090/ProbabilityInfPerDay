@@ -8,8 +8,8 @@
 
 \begin{document}
 \maketitle
-\bf キーワード：確率空間,確率分布,分布関数,幾何分布,ファーストサクセス分布
-\rm
+\bf キーワード：確率空間,幾何分布,ファーストサクセス分布,(確率分布),(分布関数)
+\par \rm 確率論と情報理論の第１回の内容です。
 
 \section*{本日の問題解答}
 １の目がでる確率が $\frac{1}{2}$ で、他の目については均等な確率であるインチキなサイコロを考える。
@@ -62,13 +62,56 @@
   である。
 \end{itemize}
 
-\section*{おかわり問題解答}
+\section*{本日の問題解説}
+確率空間とは($ \Omega ,\mathscr F,P$)の３つの組のこと。それぞれは、
 \begin{itemize}
-  \item[(1)] Xの確率分布$(P=X)$、Yの確率分布を求めよ。
-  \item[(2)] Xの分布関数を求めよ。 
-  \item[(3)] $ P(X\ge20) , P(X\ge Y<30) $を求めよ。 
+  \item $\Omega$ は考えうる不確実性全体（集合）
+  \item $\mathscr F$ は$\Omega$の部分集合族（$\sigma$-加法族）
+  \item $P$ は確率測度
+\end{itemize}
+のことである。
+\par $P$の確率測度についてもう少し解説を加える。$\Omega$の部分集合$A$を事象と呼ぶ。確率測度とは事象$A$にその事象$A$が起こる確率$P(A)$を対応させる関数（写像）のこと。
+下のふたつの条件を満たしている。
+\begin{itemize}
+  \item 全事象の確率　$P(\Omega)$=1
+  \item 加法性　$A\cap B=\emptyset$（$A$と$B$が排反）であるとき、$P(A\cup B)=P(A)+P(B)$である。
 \end{itemize}
 
-\section*{解説}
 
+\section*{おかわり問題解答}
+普通のサイコロを何回も投げる。初めて６がでるまでに６以外が出た回数をXとする。また、初めてY回目に６が出たとする。
+\begin{itemize}
+  \item[(1)] Xの確率分布$(P=X)$、Yの確率分布を求めよ。
+  \\ 
+  \begin{equation}
+    P(X=k)=\frac{1}{6} \left(\frac{5}{6}\right)^{k}~~~(k=0,1,\cdots)
+  \end{equation}
+  \begin{equation}
+    P(Y=k)=\frac{1}{6}\left(\frac{5}{6}\right)^{k-1}~~~(k=1,2,\cdots)
+  \end{equation}
+  \item[(3)] $ P(X\ge20) , P(X\ge Y<30) $を求めよ。 
+  \begin{equation}
+    \begin{split}
+      P(X\ge20)&=P(X=20)+P(X=21)+\cdots \\
+      &=\sum_{k=20}^{\infty}P(X=k) \\
+      &=\sum_{k=20}^{\infty}\frac{1}{6}\left(\frac{5}{6}\right)^k \\
+      &=\left(\frac{5}{6}\right)^{20}
+    \end{split}
+  \end{equation} 
+
+  \begin{equation}
+    \begin{split}
+      P(20\le Y<30)&=\sum_{k=20}^{29}\frac{1}{6}\left(\frac{5}{6}\right)^{k-1} \\
+      &=\left(\frac{5}{6}\right)^{19} - \left(\frac{5}{6}\right)^{29}
+    \end{split}
+  \end{equation} 
+\end{itemize}
+
+\section*{おかわり問題解説}
+最初の成功が何回目のトライで起きたかを考える問題は現実でもよくある（死ぬまでに生きた年数、卒業できる年数など）。
+これを独立ベルヌーイ試行で考えたものが\bf 幾何分布\rm である。成功確率が$p$のベルヌーイ試行を独立に何回も行うとき、初めての成功までに失敗した回数を$X$とすると、$ k=0,1,2,\cdots $として
+事象$X=k$とは$k$回の失敗のあとに成功するということなので、$ P(X=k)=p(1-p)^k $となる。この$X$の確率分布をパラメータ$p$の
+幾何分布といい、$X \sim Ge(p)$で表す。
+\par また、初めて$Y$回目に成功するとき、明らかに$Y=X+1$であり、$ k=1,2,\cdots $として
+$P(Y=k)=P(X=k-1)=p(1-p)^{k-1}$である。これをパラメータ$p$の\bf ファーストサクセス分布 \rm といい、$Y\sim Fs(p)$と書く。
 \end{document}
