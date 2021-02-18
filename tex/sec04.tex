@@ -20,19 +20,19 @@
 \section*{おかわり問題}
 \bf しっぽの定理\rm より、
 \begin{equation}
-  E(T)=\int_{0}^{\infty} P(T\ge x)dx = \int_{0}^{\infty} (1-F_T (x))dx
+  E(T)=\int_{0}^{\infty} P(T\ge x)dx
 \end{equation}
 である。（$F_T (x)$は分布関数である。）また、分布関数の定義より
 \begin{equation}
-  F_T(x) = P_t(X\le x) = \int_{-\infty}^{x} f(t)dx
+  P(X\ge x) = \int_{0}^{\infty} f(t)dt
 \end{equation}
-である。このことを用いて、$E[Exp(\lambda)]$を求めよ。（$Exp(\lambda)=\lambda e^{-\lambda x}$である。）
+である。このことを用いて、$E[Exp(\lambda)]$を求めよ。（$Exp(\lambda)=\lambda e^{-\lambda t}$である。）
 \\
 ヒント：二重積分が出てきます。
 \begin{equation}
   \begin{split}
-    E[Exp(\lambda)] &= \int_{0}^{\infty} P(Exp(\lambda)\ge t)dt \\
-    &=\int_{0}^{\infty} \int_{t}^{\infty} Exp(\lambda)~ dx dt
+    E[Exp(\lambda)] &= \int_{0}^{\infty} P(Exp(\lambda)\ge x)dx \\
+    &=\int_{0}^{\infty} \int_{x}^{\infty} Exp(\lambda)~ dt dx
   \end{split}
 \end{equation}
 \\
