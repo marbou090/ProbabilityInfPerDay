@@ -1,4 +1,5 @@
 \documentclass[a4j,uplatex]{jsarticle}
+\usepackage{amsmath}
 
 \title{確率情報理論第４回}
 \author{加藤まる}
@@ -25,7 +26,15 @@
 \begin{equation}
   F_T(x) = P_t(X\le x) = \int_{-\infty}^{x} f(t)dx
 \end{equation}
-である。このことを用いて以下を求めよ。
+である。このことを用いて、$E[Exp(\lambda)]$を求めよ。（$Exp(\lambda)=\lambda e^{-\lambda x}$である。）
+\\
+ヒント：二重積分が出てきます。
+\begin{equation}
+  \begin{split}
+    E[Exp(\lambda)] &= \int_{0}^{\infty} P(Exp(\lambda)\ge t)dt \\
+    &=\int_{0}^{\infty} \int_{t}^{\infty} Exp(\lambda)~ dx dt
+  \end{split}
+\end{equation}
 \\
 \\
 \\
