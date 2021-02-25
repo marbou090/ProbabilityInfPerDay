@@ -1,7 +1,9 @@
 \documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
 \usepackage{tcolorbox}
-\newtheorem{theorem1}{定理}
 \tcbuselibrary{breakable, skins, theorems}
+
+\newtheorem{theorem1}{定理}
+\renewcommand{\theorem1}{}
 
 \title{確率情報理論第8回}
 \author{加藤まる}
@@ -11,16 +13,24 @@
 \maketitle
 
 \section*{本日の問題}
+\begin{tcolorbox}[
+  title = マルコフの不等式,
+  ]
+    確率変数$X$について、$P\{ X>0 \}=1$であるとき、期待値$\mu$を持つならば任意の正数$\epsilon$に対して
+    \begin{center}
+      $P\{ X\ge \epsilon \} \le \frac{\mu}{\epsilon}$
+    \end{center}
+  \end{tcolorbox}
 確率変数$X$が指数分布$Ex(1)$に従うとき、確率$P(X\le 2)$について、真の値とマルコフの不等式による上からの評価値を比較せよ。（値はかなり異なる）
 
 \section*{おかわり問題}
-イェンセンの不等式は大数の弱法則の導出などに用います。
   \begin{tcolorbox}[
   title = イェンセンの不等式,
   ]
-    \begin{theorem1}
-      $g$が２回微分可能で下に凸($g''(x)\ge 0$)であるなら、$g(E[X])\le E(g(X))$
-    \end{theorem1}
+      $g$が２回微分可能で下に凸($g''(x)\ge 0$)であるなら、
+      \begin{center}
+        $g(E[X])\le E(g(X))$
+      \end{center}
   \end{tcolorbox}
 $a_1,a_2,\cdots ,a_n \ge 0$として、イェンセンの不等式を用いて$\frac{a_1+a_2+\cdots +a_n}{n}\ge \sqrt[n]{a_1a_2\cdots a_3}$\\を示せ。
 \\
