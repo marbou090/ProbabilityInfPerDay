@@ -9,10 +9,11 @@
 \maketitle
 
 \section*{本日の問題}
-以下の場合に$\displaystyle \lim_{n \to \infty} \frac{X_1 + X_2 + \cdots +X_n}{n}$と$\displaystyle \lim_{n \to \infty} \frac{X_1 + X_2 + \cdots +X_n}{X_1^2 + X_2^2 + \cdots +X_n^2}$を大数の法則を用いて求めよ。
+$\displaystyle \lim_{n \to \infty} \frac{X_1 + X_2 + \cdots +X_n}{n}=E[X]$を大数の法則という。このとき、以下を求めよ。
 \begin{itemize}
-  \item[(1)] $X_1\sim X_2\sim \cdots \sim B(n,p)$
-  \item[(2)] $X_1\sim X_2\sim \cdots \sim N(n,\sigma ^2)$
+  \item[(1)] $\displaystyle \lim_{n \to \infty} \frac{X_1 + X_2 + \cdots +X_n}{X_1^2 + X_2^2 + \cdots +X_n^2}$を$E[X]$と$E[X^2]$を用いて表せ。
+  \item[(2)] $X_1\sim X_2\sim \cdots \sim B(n,p)$で独立であるとき、(1)を求めよ。
+  \item[(3)] $X_1\sim X_2\sim \cdots \sim N(n,\sigma ^2)$で独立であるとき、(1)を求めよ。
 \end{itemize}
 また、$X_1\sim X_2\sim \cdots \sim B(n,p)$は確率変数$X_1, X_2,\cdots$が二項分布に近似できるという意であり、(2)も正規分布に近似できるという意である。
 
@@ -24,7 +25,7 @@
 \end{equation}
 である。また、分布関数の定義より
 \begin{equation}
-  P(T\ge x) = \int_{0}^{\infty} f(t)dt
+  P(T\ge x) = \int_{x}^{\infty} f(t)dt
 \end{equation}
 である。このことを用いて、$E[Exp(\lambda)]$を求めよ。（$Exp(\lambda)=\lambda e^{-\lambda t}$である。）
 \\
