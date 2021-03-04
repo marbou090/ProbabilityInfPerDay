@@ -1,4 +1,6 @@
-\documentclass[a4j,uplatex]{jsarticle}
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
 
 \title{確率情報理論第２回 解答}
 \author{加藤まる}
@@ -6,18 +8,42 @@
 
 \begin{document}
 \maketitle
-\bf キーワード：確率関数,期待値
+\bf 
+キーワード：確率関数,期待値\par
+問題出典：東京図書発行 藤田岳彦著　「弱点克服　大学生の確率・統計」
 \rm
 
 \section*{本日の問題解答}
 $f_X(x)=2e^{-2x}~~~(0<x\le 3),~ce^{-4x}~~~(x>3),~0~~~(Otherwise)$のとき、
 \begin{itemize}
-  \item[(1)] 定数c
-  \item[(2)] E[X]  
+  \item[(1)] 定数cを求めよ。
+   \begin{equation}
+     \begin{split}
+       1 =& \int_{0}^{3}e^{-2x}dx + \int_{3}^{\infty}ce^{-4x}dx\\
+       & = \left[ -e^{-2x} \right]_0^3 + \left[ c \frac{e^{-4x}}{-4} \right]_3^\infty \\
+       & = 1-e^{-6} + c\frac{e^{-12}}{4}
+     \end{split}
+   \end{equation}
+   よって、$c=4e^6$
+  \item[(2)] E[X]を求めよ。
+  \begin{equation}
+    \begin{split}
+      E[X] &= \int_{0}^{3} x2e^{-2x} dx + c\int_{3}^{\infty}xe^{-4x}dx \\
+      &= \int_{0}^{6} ue^{-u}\frac{du}{2} + c\int_{12}^{\infty}\frac{u}{4}e^{-u}\frac{du}{4} \\
+      &= \frac{1}{2}\left[ -(u+1)e^{-u}  \right]_0^6 + \frac{c}{16}\left[ -(u+1)e^{-u} \right]_{12}^\infty \\
+      &= \frac{1-7e^{-6}}{2} + \frac{13e^{-6}}{4} \\
+      &= \frac{2-e^{-6}}{4}
+    \end{split}
+  \end{equation} 
 \end{itemize}
-を求めよ。
+
 
 
 \section*{本日の問題解説}
+\begin{itemize}
+  \item[(1)] 場合わけに注意しながら、全範囲で１になることから積分して求める問題。
+  \item[(2)] (1)と同じく、場合わけに注意して期待値を計算する。\\ 
+  解答ではuと置いているが、そのままでも部分積分で簡単に求められる。
+\end{itemize}
 
 \end{document}
