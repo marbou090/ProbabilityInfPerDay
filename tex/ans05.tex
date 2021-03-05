@@ -1,0 +1,88 @@
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\title{確率情報理論第5回 解答}
+\author{加藤まる}
+\date{2020/03/05}
+
+\begin{document}
+\maketitle
+\bf キーワード：大数の法則,二項分布,正規分布,(しっぽの定理),(指数分布)
+\rm
+
+\section*{本日の問題}
+$\displaystyle \lim_{n \to \infty} \frac{X_1 + X_2 + \cdots +X_n}{n}=E[X]$を大数の法則という。このとき、以下を求めよ。
+\begin{itemize}
+  \item[(1)] $\displaystyle \lim_{n \to \infty} \frac{X_1 + X_2 + \cdots +X_n}{X_1^2 + X_2^2 + \cdots +X_n^2}$を$E[X]$と$E[X^2]$を用いて表せ。
+  \begin{equation}
+    \begin{split}
+       \lim_{n \to \infty} \frac{X_1 + X_2 + \cdots +X_n}{X_1^2 + X_2^2 + \cdots +X_n^2} &= \lim_{n \to \infty} \frac{\frac {X_1 + X_2 + \cdots +X_n}{n}}{\frac{X_1^2 + X_2^2 + \cdots +X_n^2}{n}} \\
+      &= \frac{E(X)}{E(X^2)}
+    \end{split}
+  \end{equation}
+  \item[(2)] $X_1\sim X_2\sim \cdots \sim B(n,p)$で独立であるとき、(1)を求めよ。
+  \begin{equation}
+    E(B(n,p))=np 
+  \end{equation}
+  \begin{equation}
+    V(B(n,p))=np(1-p)
+  \end{equation}
+  であるから、
+  \begin{equation}
+    \begin{split}
+      \frac{E(B(n,p))}{E(B(n,p))^2} &= \frac{E(B(n,p))}{V(B(n,p))+E(B(n,p))^2} \\
+      &= \frac{np}{np(1-p)+(np)^2}
+    \end{split}
+  \end{equation} 
+  \item[(3)] $X_1\sim X_2\sim \cdots \sim N(n,\sigma ^2)$で独立であるとき、(1)を求めよ。
+  \begin{equation}
+    E(N(n,\sigma ^2) = n
+  \end{equation} 
+  \begin{equation}
+    V(N(n,\sigma ^2)) = \sigma ^2
+  \end{equation}
+  であるから、
+  \begin{equation}
+    \begin{split}
+      \frac{E(N(n,\sigma ^2))}{E(N(n,\sigma ^2)^2)} &= \frac{E(N(n,\sigma ^2))}{V(N(n,\sigma ^2))+E(N(n,\sigma ^2))^2} \\
+      &= \frac{n}{\sigma ^2+ n}
+    \end{split}
+  \end{equation}
+\end{itemize}
+また、$X_1\sim X_2\sim \cdots \sim B(n,p)$は確率変数$X_1, X_2,\cdots$が二項分布に近似できるという意であり、(2)も正規分布に近似できるという意である。
+
+
+\section*{本日の問題解説}
+通常のサイコロを投げるとき、直感的にはどの出目も$\frac{1}{6}$で出るはずである。そこで、
+数学的に無限回サイコロを投げると頻度が収束して数学的な確率と一致する。これを保証するのが、大数の法則である。
+ただし、$X_1,X_2,\cdots,X_n$は独立で同分布である必要がある。これは、同じサイコロをふり続けるなど同じ実験の
+繰り返しであるという制約と捉えるとよい（私的意見）。
+
+\section*{おかわり問題}
+\bf しっぽの定理\rm より、
+\begin{equation}
+  E(T)=\int_{0}^{\infty} P(T\ge x)dx
+\end{equation}
+である。また、分布関数の定義より
+\begin{equation}
+  P(T\ge x) = \int_{x}^{\infty} f(t)dt
+\end{equation}
+である。このことを用いて、$E[Exp(\lambda)]$を求めよ。（$Exp(\lambda)=\lambda e^{-\lambda t}$である。）
+
+\begin{equation}
+  \begin{split}
+    E[Exp(\lambda)] &= \int_{0}^{\infty} P(Exp(\lambda)\ge x)dx \\
+    &=\int_{0}^{\infty} \int_{x}^{\infty} Exp(\lambda)~ dt dx \\
+    &= \int_{0}^{\infty} e^{-\lambda x} dx \\
+    &= \left[ -\frac{1}{\lambda} e^{-\lambda x} \right]^{\infty}_0 \\
+    &= \frac{1}{\lambda}
+  \end{split}
+\end{equation}
+
+\section*{おかわり問題解説}
+しっぽ確率は保険数理によく出てくる（らしい）。期待値を出す計算方法として知識程度に
+知っておくとよいかも。
+
+\end{document}
