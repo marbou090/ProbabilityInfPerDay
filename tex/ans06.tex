@@ -1,0 +1,34 @@
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\title{確率情報理論第6回 解答}
+\author{加藤まる}
+\date{2020/03/06}
+
+\begin{document}
+\maketitle
+\bf キーワード：
+\rm
+
+\section*{本日の問題解答}
+全ての目が均等な確率で出る（つまり一様分布に従う）サイコロを500回転がすことを考える。\\
+中心極限定理を用いて、サイコロの出目の平均が近似的に従う正規分布を求めよ。\\
+ランダムに生成された実数をそれぞれ $X_1, X_2,\cdots, X_500$ とすると, これらは互いに独
+立に同一の連続一様分布 $U(1, 6)$ に従う. このとき一様分布 $U(1, 6)$ の期待値と分
+散は
+\begin{equation}
+  E(X_i) = \frac{1+6}{2} = \frac{7}{2} \ \ \ V(X_i) = \frac{6^2-1}{12} = \frac{35}{12}
+\end{equation}
+このとき標本平均$\displaystyle \overline{X} = \frac{1}{500} \sum_{i=1}^{500} X_i$の期待値と分散は, 互いに独立であることから
+\begin{equation}
+  E(\overline{X}) = \frac{7}{2} \ \ \ V(\overline{X}) = \frac{\frac{35}{12}}{500}
+\end{equation}
+したがって中心極限定理により, $\overline{X}$ は正規分布$\displaystyle N \left( \frac{7}{2},{\frac{7}{1200}}\right)$に近似的に従う.
+
+
+\section*{おかわり問題解説}
+出題ミス
+
+\end{document}
