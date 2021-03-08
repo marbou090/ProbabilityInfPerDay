@@ -1,0 +1,68 @@
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\title{確率情報理論第8回 解答}
+\author{加藤まる}
+\date{2020/03/08}
+
+\begin{document}
+\maketitle
+\bf キーワード：
+\rm
+
+\section*{本日の問題解答}
+\begin{tcolorbox}[
+  title = マルコフの不等式,
+  ]
+    確率変数$X$について、$P\{ X>0 \}=1$であるとき、期待値$\mu$を持つならば任意の正数$\epsilon$に対して
+    \begin{center}
+      $P\{ X\ge \epsilon \} \le \frac{\mu}{\epsilon}$
+    \end{center}
+  \end{tcolorbox}
+確率変数$X$が指数分布$Ex(1)$に従うとき、確率$P(X\ge 2)$について、真の値とマルコフの不等式による上からの評価値を比較せよ。（値はかなり異なる）
+真の値は $e^{-2} = 0.1353$である。\\
+\begin{equation}
+  \begin{split}
+    E[X] &= \frac{1}{\lambda}\\
+    &= 1
+  \end{split}
+\end{equation}
+であるから、マルコフの不等式より
+\begin{equation}
+  \begin{split}
+    P\{ X\ge \epsilon \} \le \frac{\mu}{\epsilon} \\ 
+    P\{ X\ge 2 \} \le \frac{1}{2}
+  \end{split}
+\end{equation}
+よって評価値は0.5である。
+
+\section*{本日の問題解説}
+マルコフの不等式はチェビシェフの不等式の証明に用いられる。
+
+\newpage
+\section*{おかわり問題解答}
+\begin{tcolorbox}[
+  title = イェンセンの不等式,
+  ]
+      $g$が２回微分可能で下に凸($g''(x)\ge 0$)であるなら、
+      \begin{center}
+        $g(E[X])\le E(g(X))$
+      \end{center}
+  \end{tcolorbox}
+$a_1,a_2,\cdots ,a_n \ge 0$として、イェンセンの不等式を用いて$\displaystyle \frac{a_1+a_2+\cdots +a_n}{n}\ge \sqrt[n]{a_1a_2\cdots a_3}$\\を示せ。
+
+$\displaystyle P(X=a_i)=\frac{1}{n}(i=1,2,\cdots,n)$とし、$g(x)=-\log{x}$とする。イェンセン不等式より、
+\begin{equation}
+  \begin{split}
+    g(E[X]) &= -\log{ \left( \frac{a_1,a_2,\cdots , a_n}{n} \right)} \\
+    & \le E[g(X)] \\
+    &= -\frac{\log{a_1}+\log{a_2}+\cdots + \log{a_n}}{n}\\
+    &= -\log(\sqrt[n]{a_1 a_2 \cdots a_n})
+  \end{split}
+\end{equation}
+よって、$\displaystyle \sqrt[n]{a_1 a_2 \cdots a_n} \le \frac{a_1 + a_2 + \cdots a_n}{n}$である。\\
+（等号は$a_1=a_2=\cdots = a_n$）
+
+\end{document}
