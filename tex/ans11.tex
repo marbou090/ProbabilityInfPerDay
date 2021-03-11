@@ -1,0 +1,42 @@
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\title{確率情報理論第hoge回 解答}
+\author{加藤まる}
+\date{2020/03/01}
+
+\begin{document}
+\maketitle
+\bf キーワード：
+\rm
+
+\section*{本日の問題解答}
+母集団分布$F$の分散$\sigma ^2$が$5.0^2$であるものとして、この母集団からとった大きさ$n=100$の
+標本の標本平均$\bar{x}=122.0$から、母平均$\mu$の$95\%$信頼区間を求めよ。
+\\ \\ 
+$z_{0.025}=1.960$であることより、
+\begin{equation}
+  122.0-1.960\times \frac{5.0}{\sqrt{100}} < \mu < 122.0+1.960\times \frac{5.0}{\sqrt{100}}
+\end{equation}
+よって、信頼区間は$121.0<\mu < 123.0$である。
+
+
+\section*{おかわり問題解答}
+二項分布$B(1,p)$を母集団分布にもつある母集団からとった大きさ100の標本の標本平均が、
+$\bar{x}=0.61$であった。このとき、割合$p$の$95 \%$信頼区間を求めよ。（$z_α =1.960$）\\
+割合pに対する$100(1-α)\%$信頼区間は、
+\begin{equation}
+  \bar{x}-\frac{z_{\frac{α}{2}}}{2\sqrt{n}} < p < \bar{x}+\frac{z_{\frac{α}{2}}}{2\sqrt{n}}
+\end{equation}
+で求められることから、
+\begin{equation}
+  0.61 - \frac{1.960}{2\sqrt{100}} < p < 0.61 + \frac{1.960}{2\sqrt{100}}
+\end{equation}
+よって、信頼区間は$0.512<p<0.708$である。
+
+
+\section*{おかわり問題解説}
+
+\end{document}
