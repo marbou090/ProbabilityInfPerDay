@@ -1,0 +1,80 @@
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\title{確率情報理論第10回 解答}
+\author{加藤まる}
+\date{2020/03/10}
+
+\begin{document}
+\maketitle
+\bf キーワード：
+\rm
+
+\section*{本日の問題解答}
+標本空間$A={0,1}$として、$A$上の２つの確率分布$PとQ$を
+\begin{center}
+  $P(0)=P(1)=0.5,~~Q(0)=0.2,~~Q(1)=0.8$
+\end{center}
+と定める。このとき、$D(P||Q)\neq D(Q||P)$を示せ。
+\\ \\ 
+\begin{equation}
+  D(P||Q) = 0.5\log{\frac{0.5}{0.2}}+0.5\log{\frac{0.5}{0.8}} \approx 0.3219
+\end{equation}
+\begin{equation}
+  D(Q||P)=0.2\log{\frac{0.2}{0.5}} +0.8\log{\frac{0.8}{0.5}}\approx 0.2781
+\end{equation}
+よって、$D(P||Q)\neq D(Q||P)$が示せた。
+
+
+\section*{おかわり問題解答}
+定数$0<a,b<1$が与えられたとする。集合$\{ 0,1,2,\cdots ,n \}$上の２つの二項分布
+\begin{center}
+  $p(r) = {}_nC_r~a^r (1-a)^{n-r}$\\
+  $q(r) = {}_nC_r~b^r (1-b)^{n-r}$\\
+\end{center}
+のカルバック情報量を$D(p||q)$とすると、$a,b$の関数$f(a,b)$が存在して、
+\begin{center}
+  $D(p||q)=nf(a,b)$
+\end{center}
+とかけることを示せ。また、$f(a,b)$を求めよ。\\
+\begin{equation}
+  \begin{split}
+    D(p||q) &= \sum_{k=0}^n {}_nC_k a^k (1-a)^{n-k} \log{\frac{{}_nC_k a^k (1-a)^{n-k}}{{}_nC_k b^k (1-b)^{n-k}}} \\ 
+    &=\sum_{k=0}^n {}_nC_k a^k (1-a)^{n-k} \log{\frac{ a^k (1-a)^{n-k}}{ b^k (1-b)^{n-k}}} \\
+    &= \sum_{k=0}^n {}_nC_k a^k (1-a)^{n-k} \log \left( {\left(\frac{a}{b} \right)^k \left(\frac{1-a}{1-b}\right)^{n-k}} \right) \\ 
+    &=\sum_{k=0}^n {}_nC_k a^k (1-a)^{n-k} \left(k \log \left( \frac{a}{b} \right) + (n-k)\log \left( \frac{1-a}{1-b} \right) \right)
+  \end{split}
+\end{equation}
+分けて考えていく。
+\begin{equation}
+    \sum_{k=0}^n {}_nC_k a^k (1-a)^{n-k} k \log \left( \frac{a}{b} \right) = \log \left( \frac{a}{b} \right) \sum_{k=0}^n k~{}_nC_k a^k (1-a)^{n-k} \\
+\end{equation}
+このとき、右辺は二項分布の期待値になっていることから、
+\begin{equation}
+  \sum_{k=0}^n {}_nC_k a^k (1-a)^{n-k} k \log \left( \frac{a}{b} \right) = na\log \left( \frac{a}{b} \right)
+\end{equation}
+である。次に、
+\begin{equation}
+  \sum_{k=0}^n {}_nC_k a^k (1-a)^{n-k}(n-k)\log \left( \frac{1-a}{1-b} \right) =\log \left( \frac{1-a}{1-b} \right) \sum_{k=0}^n {}_nC_k a^k (1-a)^{n-k}(n-k)
+\end{equation}
+である。右辺について分解していくと、
+\begin{equation}
+  \log \left( \frac{1-a}{1-b} \right) \left( \sum_{k=0}^n n~{}_nC_k a^k (1-a)^{n-k} - \sum_{k=0}^n k~{}_nC_k a^k (1-a)^{n-k} \right)
+\end{equation}
+である。二項定理より、
+\begin{equation}
+  (a+b)^n = \sum_{k=0}^n {}_nC_k a^n b^{n-k}
+\end{equation}
+であるから、左側の部分は$b=(1-a)$と見て１になる。右側の部分は二項分布の期待値より$na$になっている。\\
+以上より、
+\begin{equation}
+    na\log{\frac{a}{b}} + \log{\frac{1-a}{1-b}}(n-na) = n \left( a\log{\frac{a}{b}} + (1-a)\log{\frac{1-a}{1-b}} \right)
+\end{equation}
+よって、
+\begin{equation}
+  f(a,b)= \left( a\log{\frac{a}{b}} + (1-a)\log{\frac{1-a}{1-b}} \right)
+\end{equation}
+
+\end{document}
