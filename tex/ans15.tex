@@ -1,0 +1,53 @@
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\title{確率情報理論第15回 解答}
+\author{加藤まる}
+\date{2020/03/15}
+
+\begin{document}
+\maketitle
+\bf キーワード：
+\rm
+
+\section*{本日の問題解答}
+$f_x(x)=2\theta x e^{-\theta x^2}~~(x>0)$とし、$X$に従う母集団から$n$個の標本$x_1,x_2,\cdots , x_n$をとる。
+母パラメータ$\theta$の最尤推定値$\hat{\theta}$を求めよ。
+
+尤度関数は、
+\begin{equation}
+  L(x_1,x_2,\cdots, x_n|\theta)=2^n\theta^n x_1  x_2\cdots x_n e^{-\theta(x_1^2+\cdots+x_n^2)}
+\end{equation}
+となることから、
+\begin{equation}
+    \log{L}= n\log{2}+n\log{\theta} + n\log(x_1x_2\cdots x_n)-\theta(x_1^2+x_2^2+\cdots+x_n^2)
+\end{equation}
+\begin{equation}
+  0=\frac{\partial \log{L}}{\partial \theta}=\frac{n}{\theta}-(x_1^2+x_2^2+\cdots+x_n^2)
+\end{equation}
+よって、$\displaystyle \hat{\theta}=\frac{n}{x_1^2+x_2^2+\cdots+x_n^2}$である。
+
+
+\section*{おかわり問題解答}
+$Exp(\frac{1}{\lambda})$母集団（平均$\lambda$）での母平均$\lambda$の最尤推定値$\hat{\lambda}$を求めよ。
+\\ \\ 
+尤度関数は
+\begin{equation}
+  L(x_1,x_2,\cdots, x_n|\lambda) = \lambda^{-n}e^{-\frac{x_1,x_2,\cdots, x_n}{\lambda}}
+\end{equation}
+よって、$\log{L}=-n\log{\lambda}-\lambda^{-1}(x_1,x_2,\cdots, x_n)$である。つまり、
+\begin{equation}
+  \begin{split}
+    0=\frac{\partial \log{L}}{\partial \lambda}&=\frac{\partial}{\partial \lambda}(-n\log{\lambda}-\lambda^{-1}(x_1,x_2,\cdots, x_n)) \\
+    &=-\frac{n}{\lambda}+\frac{1}{\lambda^2}(x_1,x_2,\cdots, x_n)
+  \end{split}
+\end{equation}
+よって、求める最尤推定値$\hat{\lambda}$は、
+\begin{equation}
+  \hat{\lambda}=\frac{x_1,x_2,\cdots, x_n}{n}=\bar{x}
+\end{equation}
+
+
+\end{document}
