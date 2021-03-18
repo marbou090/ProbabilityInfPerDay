@@ -1,0 +1,88 @@
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\title{確率情報理論第16回 解答}
+\author{加藤まる}
+\date{2020/03/16}
+
+\begin{document}
+\maketitle
+\bf キーワード：
+\rm
+
+\section*{本日の問題解答}
+$U(0,\theta)$に従う母集団での母パラメータ$\theta$の不偏推定量$T=2X,T'=\frac{n+1}{n}~max(X_1,X_2,\cdots,X_n)$
+のどちらがより有効であるか調べよ。なお、分散が小さいほどより有効であるとする。
+\begin{equation}
+  V(T)=\frac{4}{n^2}V(X_1,X_2,\cdots,X_n)=\frac{4}{n}(U(0,\theta))=\frac{4}{n}\frac{\theta^2}{12}=\frac{\theta}{3n}
+\end{equation}
+また、
+\begin{equation}
+  f_{max(X_1,X_2,\cdots,X_n)}(x)=\frac{nx^{x-1}}{\theta^n}~~~(0<x<\theta)
+\end{equation}
+より、
+\begin{equation}
+  E(T^2)=\frac{(n+1)^2}{n^2}\int_{0}^{\theta}x^2~\frac{nx^{n-1}}{\theta^n}dx = \frac{(n+1)^2}{n(n+2)}\theta^2
+\end{equation}
+つまり、$V(T')=E(T'^2)-E(T')^2=\frac{1}{n(n+2)\theta^2}$である。\\
+よって、$n\le 2$なら、$T'$のほうが$T$より有効である。また、$n=1$なら$T'=T$つまり$V(T')=V(T)$である。
+
+\section*{おかわり問題解説}
+(1)の式変形では
+\begin{equation}
+  V(U(a,b))=\frac{(b-a)^2}{12}
+\end{equation}
+を思い出すと良い。\\
+(2)の式は標準一様分布の確率密度関数を思い出すと良い。　
+
+\section*{おかわり問題解答}
+$Exp(\frac{1}{\lambda})$に従う母集団において、母平均$\lambda$の不偏推定量$\bar{X}$と
+$T=c_n~min(X_1,X_2,\cdots,X_n)$を考える。
+\begin{itemize}
+  \item[(1)]$c_n$を求めよ。
+   x>0として、
+   \begin{equation}
+     P(min(X_1,X_2,\cdots,X_n)>x)=P(X_1>x)\cdots P(X_n>x)=(e^{-\frac{x}{\lambda}})^n=e^{\frac{-nx}{\lambda}}
+   \end{equation}
+   よって、
+   \begin{equation}
+     f_{min(X_1,X_2,\cdots,X_n)}(x)=-\frac{d}{dx}P(min(X_1,X_2,\cdots,X_n)>x)=\frac{n}{\lambda}e^{-\frac{n}{\lambda}x}
+   \end{equation}
+   つまり、$min(X_1,X_2,\cdots,X_n)\sim Exp\left( \frac{n}{\lambda} \right)$である。\\
+   よって、$E(min(X_1,X_2,\cdots,X_n))=\frac{\lambda}{n}$、つまり、$c_n=n$である。\\
+   \item[(2)]$\bar{X}$と$T$のどちらがより有効か調べよ。
+   \begin{equation}
+     V(\bar{X})=\frac{\lambda ^2}{n}
+   \end{equation} 
+   であるから、
+   \begin{equation}
+     V(\bar{T})=V\left( nExp\left( \frac{n}{\lambda} \right) \right) = n^2 \frac{n^2}{\lambda ^2}=\lambda ^2
+   \end{equation}
+   つまり、$\bar{X}$のほうがより有効である。\\
+  \item[(3)]$\bar{X}$のフィッシャー情報量を求め、クラメール＝ラオの不等式の下限
+  と一致することを確かめ、有効推定量であることを示せ。
+   \begin{equation}
+     \frac{\partial \log{f_{Exp(1/\lambda)}(x)}}{\partial \lambda}=\frac{\partial}{\partial \lambda}\left( -\log{\lambda}-\frac{x}{\lambda} \right)
+     =-\frac{1}{\lambda}+\frac{x}{\lambda^2}
+   \end{equation}
+   より、フィッシャー情報量は
+   \begin{equation}
+    I(\lambda)=V\left( -\frac{1}{\lambda}+\frac{X}{\lambda ^2} \right)=\frac{1}{\lambda ^4}(\lambda ^2)=\frac{1}{\lambda}
+   \end{equation}
+   である。また、
+   \begin{equation}
+     V(\bar{X})=\frac{\lambda ^2}{n}=\frac{1}{nI(\lambda)}
+   \end{equation}
+   となり、クラメール＝ラオの不等式の下限と一致する。
+
+\end{itemize}
+\section*{おかわり問題解説}
+(7)の式では
+\begin{equation}
+  V(Exp(\mu))=\frac{1}{\mu ^2}
+\end{equation}
+を用いた。
+
+\end{document}
