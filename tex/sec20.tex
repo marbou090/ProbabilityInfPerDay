@@ -1,0 +1,37 @@
+\documentclass[a4j,uplatex,dvipdfmx]{jsarticle}
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+\title{確率情報理論第20回}
+\author{加藤まる}
+\date{2020/03/20}
+
+\begin{document}
+\maketitle
+
+\section*{本日の問題}
+公平なコインと、次の確率分布にしたがう偏りのあるサイコロについて考える。。
+\begin{equation}
+  P(1)=\frac{1}{2},~~P(2)=\frac{1}{4},~~P(3)=\frac{1}{8},~~P(4)=\frac{1}{16},~~P(5)=\frac{1}{32},~~P(6)=\frac{1}{32}
+\end{equation}
+ただし、P(i)はiという目が出る確率を表す。
+\begin{itemize}
+  \item[(1)] 公平なコインと偏りのあるサイコロをそれぞれ独立に振る場合を考える。\\
+  コインを振って出た表と裏を表す確率変数を$X_1$とし、サイコロのでためを表す確率変数を$Y_1$とする。 このとき、エントロピー$H(X_1)$と$H(Y_1)$,
+  同時エントロピー$H(X_1,Y_1)$を求めよ。
+  \item[(2)]公平なコインをフリ、表が出れば公平なサイコロを、裏が出れば偏りのあるサイコロをそれぞれ振る場合を考える。
+  コインを振ってでた表と裏を表す確率変数を$X_2$ とし、サイコロのでためをアワラス確率変数を$Y_2$とする。このとき、エントロピー$H(X_2)$と$H(Y_2)$、条件付きエントロピー$H(Y_2|X_2)$、
+  同時エントロピー$H(X_2,Y_2)$をそれぞれ求めよ。\\
+\end{itemize}
+
+\section*{おかわり問題}
+母平均$\mu=4$、母分散$\sigma ^2=15$の正規母集団から、大きさ$n=10$の標本を抽出する。
+\begin{itemize}
+  \item[(1)]標本平均$\bar{X}$が$3$と$6$の間にある確率を求めよ。
+  \item[(2)]標本分散$s^2$が$a$を越える確率が$0.05$となるような$a$の値を求めよ。\\ 
+\end{itemize}
+解答を加藤まる（まるぼう）にDiscordDMに送ると添削します（添削不要の場合DMは不要）。解答は夜にDiscordに貼るので自己採点してみてください。
+
+\end{document}
+
